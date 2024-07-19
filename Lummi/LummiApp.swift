@@ -25,7 +25,7 @@ struct LummiApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(imageModel: ImageControllerModel())
         }
         .modelContainer(sharedModelContainer)
     }

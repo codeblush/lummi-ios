@@ -15,6 +15,9 @@
 		E5D83E822C49EB9F003904E2 /* LummiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83E812C49EB9F003904E2 /* LummiTests.swift */; };
 		E5D83E8C2C49EB9F003904E2 /* LummiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83E8B2C49EB9F003904E2 /* LummiUITests.swift */; };
 		E5D83E8E2C49EB9F003904E2 /* LummiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83E8D2C49EB9F003904E2 /* LummiUITestsLaunchTests.swift */; };
+		E5D83E9F2C49F261003904E2 /* ImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83E9E2C49F261003904E2 /* ImagesModel.swift */; };
+		E5D83EA12C49FBF4003904E2 /* LummiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83EA02C49FBF4003904E2 /* LummiService.swift */; };
+		E5D83EA32C4A1D31003904E2 /* LummiImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83EA22C4A1D31003904E2 /* LummiImageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		E5D83E872C49EB9F003904E2 /* LummiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LummiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D83E8B2C49EB9F003904E2 /* LummiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LummiUITests.swift; sourceTree = "<group>"; };
 		E5D83E8D2C49EB9F003904E2 /* LummiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LummiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E5D83E9E2C49F261003904E2 /* ImagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesModel.swift; sourceTree = "<group>"; };
+		E5D83EA02C49FBF4003904E2 /* LummiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LummiService.swift; sourceTree = "<group>"; };
+		E5D83EA22C4A1D31003904E2 /* LummiImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LummiImageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,10 @@
 		E5D83E6D2C49EB9E003904E2 /* Lummi */ = {
 			isa = PBXGroup;
 			children = (
+				E5D83E9D2C49F1E0003904E2 /* Controllers */,
+				E5D83E9C2C49F1D6003904E2 /* Services */,
+				E5D83E9B2C49F1CB003904E2 /* Views */,
+				E5D83E9A2C49F1C4003904E2 /* Models */,
 				E5D83E6E2C49EB9E003904E2 /* LummiApp.swift */,
 				E5D83E702C49EB9E003904E2 /* ContentView.swift */,
 				E5D83E722C49EB9E003904E2 /* Item.swift */,
@@ -128,6 +138,37 @@
 				E5D83E8D2C49EB9F003904E2 /* LummiUITestsLaunchTests.swift */,
 			);
 			path = LummiUITests;
+			sourceTree = "<group>";
+		};
+		E5D83E9A2C49F1C4003904E2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5D83E9E2C49F261003904E2 /* ImagesModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E5D83E9B2C49F1CB003904E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E5D83E9C2C49F1D6003904E2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E5D83EA02C49FBF4003904E2 /* LummiService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E5D83E9D2C49F1E0003904E2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E5D83EA22C4A1D31003904E2 /* LummiImageController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,9 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D83EA32C4A1D31003904E2 /* LummiImageController.swift in Sources */,
 				E5D83E712C49EB9E003904E2 /* ContentView.swift in Sources */,
 				E5D83E732C49EB9E003904E2 /* Item.swift in Sources */,
+				E5D83EA12C49FBF4003904E2 /* LummiService.swift in Sources */,
 				E5D83E6F2C49EB9E003904E2 /* LummiApp.swift in Sources */,
+				E5D83E9F2C49F261003904E2 /* ImagesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

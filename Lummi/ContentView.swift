@@ -6,56 +6,51 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @ObservedObject var imageModel: ImageControllerModel
+    
+    let lummiURL = "https://assets.lummi.ai/"
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+        VStack {
+            Text("Lummi")
+                .font(.system(size: 70.0, weight: .black))
+            ScrollView {
+                LazyVGrid(columns: [GridItem(), GridItem()]) {
+                    ForEach(imageModel.images) { image in
+                        let url = "\(lummiURL)\(String(image.path))"
+                        
+                        AsyncImage(url: URL(string: url)) { phase in
+                            switch phase {
+                            case .empty:
+                                ProgressView()
+                            case .success(let image):
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                            case .failure:
+                                Image(systemName: "xmark.octagon")
+                                    .resizable()
+                                    .scaledToFit()
+                            @unknown default:
+                                EmptyView()
+                            }
+                        }
+                        .frame(width: .infinity)
                     }
                 }
-                .onDelete(perform: deleteItems)
+                
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
         }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+        .onAppear() {
+            Task {
+                await imageModel.getHomeImages()
             }
         }
     }
 }
 
 #Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+    ContentView(imageModel: ImageControllerModel())
 }
