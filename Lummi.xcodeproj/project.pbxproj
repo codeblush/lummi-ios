@@ -18,6 +18,8 @@
 		E5D83E9F2C49F261003904E2 /* ImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83E9E2C49F261003904E2 /* ImagesModel.swift */; };
 		E5D83EA12C49FBF4003904E2 /* LummiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83EA02C49FBF4003904E2 /* LummiService.swift */; };
 		E5D83EA32C4A1D31003904E2 /* LummiImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83EA22C4A1D31003904E2 /* LummiImageController.swift */; };
+		E5D83EA62C4ABD02003904E2 /* MasonryStack in Frameworks */ = {isa = PBXBuildFile; productRef = E5D83EA52C4ABD02003904E2 /* MasonryStack */; };
+		E5D83EA82C4AD07B003904E2 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83EA72C4AD07B003904E2 /* ImageDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		E5D83E9E2C49F261003904E2 /* ImagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesModel.swift; sourceTree = "<group>"; };
 		E5D83EA02C49FBF4003904E2 /* LummiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LummiService.swift; sourceTree = "<group>"; };
 		E5D83EA22C4A1D31003904E2 /* LummiImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LummiImageController.swift; sourceTree = "<group>"; };
+		E5D83EA72C4AD07B003904E2 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D83EA62C4ABD02003904E2 /* MasonryStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +155,7 @@
 		E5D83E9B2C49F1CB003904E2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E5D83EA72C4AD07B003904E2 /* ImageDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +192,9 @@
 			dependencies = (
 			);
 			name = Lummi;
+			packageProductDependencies = (
+				E5D83EA52C4ABD02003904E2 /* MasonryStack */,
+			);
 			productName = Lummi;
 			productReference = E5D83E6B2C49EB9E003904E2 /* Lummi.app */;
 			productType = "com.apple.product-type.application";
@@ -259,6 +267,9 @@
 				Base,
 			);
 			mainGroup = E5D83E622C49EB9E003904E2;
+			packageReferences = (
+				E5D83EA42C4ABD02003904E2 /* XCRemoteSwiftPackageReference "MasonryStack" */,
+			);
 			productRefGroup = E5D83E6C2C49EB9E003904E2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -302,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5D83EA32C4A1D31003904E2 /* LummiImageController.swift in Sources */,
+				E5D83EA82C4AD07B003904E2 /* ImageDetailView.swift in Sources */,
 				E5D83E712C49EB9E003904E2 /* ContentView.swift in Sources */,
 				E5D83E732C49EB9E003904E2 /* Item.swift in Sources */,
 				E5D83EA12C49FBF4003904E2 /* LummiService.swift in Sources */,
@@ -470,7 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lummi/Preview Content\"";
-				DEVELOPMENT_TEAM = F3V28L3PJH;
+				DEVELOPMENT_TEAM = TSP733L3T9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -500,7 +512,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lummi/Preview Content\"";
-				DEVELOPMENT_TEAM = F3V28L3PJH;
+				DEVELOPMENT_TEAM = TSP733L3T9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -638,6 +650,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E5D83EA42C4ABD02003904E2 /* XCRemoteSwiftPackageReference "MasonryStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lukepistrol/MasonryStack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E5D83EA52C4ABD02003904E2 /* MasonryStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5D83EA42C4ABD02003904E2 /* XCRemoteSwiftPackageReference "MasonryStack" */;
+			productName = MasonryStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E5D83E632C49EB9E003904E2 /* Project object */;
 }

@@ -7,7 +7,9 @@
 
 import Foundation
 
-func getLummiImages() async throws -> [ImageModel] {
+let lummiURL = "https://assets.lummi.ai/"
+
+func getLummiImages(page: Int = 1) async throws -> [ImageModel] {
     // Define the endpoint URL
     guard let url = URL(string: "https://www.lummi.ai/api/actions/getImages") else { throw ImageErrors.invalidURL }
     
@@ -20,7 +22,7 @@ func getLummiImages() async throws -> [ImageModel] {
     let parameters: [String: Any] = [
         "params": [
             [
-                "page": 1,
+                "page": page,
                 "perPage": 30,
                 "filters": [:],
                 "orderBy": [

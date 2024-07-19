@@ -10,6 +10,11 @@ import Foundation
 struct ImageModel: Codable, Identifiable {
     let id: String
     let path: String
+    let width: Int
+    let height: Int
+    let author: AuthorModel
+    let name: String
+    let description: String
 }
 
 struct ColorPaletteModel: Codable {
@@ -25,7 +30,7 @@ struct ColorValueModel: Codable {
     let hex: String
 }
 
-struct AuthorModel: Codable {
+struct AuthorModel: Codable, Identifiable {
     let id: String
     let username: String
     let name: String
