@@ -76,15 +76,20 @@ struct ContentView: View {
                     .padding(.horizontal, 8.0)
                 }
             }
+            .refreshable {
+                Task {
+                    await imageModel.getImages()
+                }
+            }
             .onChange(of: page) {
                 Task {
-                    await imageModel.getHomeImages(page:page)
+                    await imageModel.loadMoreImages(page:page)
                 }
             }
             .onAppear() {
                 if (page == 1 && imageModel.images.isEmpty) {
                     Task {
-                        await imageModel.getHomeImages()
+                        await imageModel.getImages()
                     }
                 }
             }

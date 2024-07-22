@@ -21,15 +21,37 @@ final class ImageControllerModel: ObservableObject {
     @Published var images: [ImageModel] = []
     @Published private(set) var state = Status.idle
     
-    func getHomeImages(page: Int = 1) async {
+    func loadMoreImages(page: Int = 1) async {
         do {
             DispatchQueue.main.async {
-                self.state = page == 1 ? .loadingFirstBatch : .loading
+                self.state = .loading
             }
-                
+            
             let result = try await getLummiImages(page: page)
             
             DispatchQueue.main.async {
+                self.images.append(contentsOf: result)
+                self.state = .success
+            }
+        } catch {
+            print("Something went wrong \(error)")
+            
+            DispatchQueue.main.async {
+                self.state = .failed
+            }
+        }
+    }
+    
+    func getImages() async {
+        do {
+            DispatchQueue.main.async {
+                self.state = .loadingFirstBatch
+            }
+                
+            let result = try await getLummiImages()
+            
+            DispatchQueue.main.async {
+                self.images = []
                 self.images.append(contentsOf: result)
                 self.state = .success
             }
