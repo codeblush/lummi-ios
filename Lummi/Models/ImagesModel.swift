@@ -15,6 +15,7 @@ struct ImageModel: Codable, Identifiable {
     let author: AuthorModel
     let name: String
     let description: String
+    let blurhash: String
 }
 
 struct ColorPaletteModel: Codable {

@@ -1,5 +1,5 @@
 {
-  "originHash" : "8fbdb9f5c4f256c022295caa0543eb08a37dba95225a8e98b76f3ce5e30c8f6a",
+  "originHash" : "9f50d7c860dc65d450f4c8320869085bbb793b76a93be39c19c1b4c9c8ea5645",
   "pins" : [
     {
       "identity" : "masonrystack",
@@ -8,6 +8,24 @@
       "state" : {
         "revision" : "d0901713a72febe9bee7b8db5af6fb5d63362ab8",
         "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "swiftui-cached-async-image",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lorenzofiamingo/swiftui-cached-async-image.git",
+      "state" : {
+        "revision" : "467a3d17479887943ab917a379e62bbaff60ac8a",
+        "version" : "2.1.1"
+      }
+    },
+    {
+      "identity" : "unifiedblurhash",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/iankoex/UnifiedBlurHash.git",
+      "state" : {
+        "revision" : "39d18f3526c62e950c97090aac75d5dac1de9b21",
+        "version" : "1.0.3"
       }
     }
   ],
