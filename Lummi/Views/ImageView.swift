@@ -16,6 +16,8 @@ struct ImageView: View {
     
     let cornerRadius: Double?
     
+    @State var id: UUID = UUID()
+    
     var body: some View {
         CachedAsyncImage(url: URL(string: path)) { path in
             switch path {
@@ -32,11 +34,25 @@ struct ImageView: View {
                         .aspectRatio(CGSize(width: width, height: height), contentMode: .fill)
                 }
             case .failure:
-                EmptyView()
+                ZStack {
+                    Image(blurHash: blurhash)?
+                        .resizable()
+                        .aspectRatio(CGSize(width: width, height: height), contentMode: .fill)
+                    Button {
+                        id = UUID()
+                    } label: {
+                        Image(systemName: "arrow.circlepath")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 120, height: 120)
+                            .foregroundColor(.secondary)
+                    }
+                }
             case .success(let image):
                 image
                     .resizable()
                     .scaledToFit()
+                    .id(id)
                     .contextMenu {
                         Button("Save Image", systemImage: "square.and.arrow.down") {
                             print("hello")

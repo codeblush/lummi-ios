@@ -68,7 +68,7 @@ struct ContentView: View {
                         }
                         ProgressView()
                             .task {
-                                if (imageModel.state != .loadingFirstBatch) {
+                                if (imageModel.state == .success) {
                                     page+=1
                                 }
                             }
@@ -82,7 +82,7 @@ struct ContentView: View {
                 }
             }
             .onAppear() {
-                if (page == 1) {
+                if (page == 1 && imageModel.images.isEmpty) {
                     Task {
                         await imageModel.getHomeImages()
                     }
