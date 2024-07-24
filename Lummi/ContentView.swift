@@ -17,79 +17,50 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                Text("Lummi")
-                    .font(.system(size: 70.0, weight: .black))
-                if (imageModel.state == .loadingFirstBatch) {
-                    ZStack {
+            ZStack {
+                if (imageModel.state == .loading && imageModel.images.isEmpty) {
+                    VStack {
                         Spacer()
                         ProgressView()
                         Spacer()
                     }
-                } else {
-                    LazyVStack (spacing: 8.0) {
-                        ForEach(imageModel.images) { image in
-                            let url = "\(lummiURL)\(String(image.path))?w=720"
-                            NavigationLink (destination: ImageDetailView(image: image)) {
-                                ZStack (alignment: .bottom) {
-                                    ImageView(path: url, width: image.width, height: image.height, blurhash: image.blurhash, cornerRadius: 32.0)
-                                    
-                                    VStack (alignment: .trailing) {
-                                        HStack {
-                                            HStack (spacing: 8.0) {
-                                                AvatarView(size: 30, avatar: image.author.avatar)
-                                                Text(image.author.name)
-                                                    .font(.system(size: 20.0, weight: .medium))
-                                                    .foregroundColor(.primary)
-                                            }
-                                            .padding(.all, 8.0)
-                                            .padding(.trailing, 10.0)
-                                            .background(.regularMaterial)
-                                            .cornerRadius(.infinity)
-                                            Spacer()
-                                            Button(action: {}, label: {
-                                                Image(systemName: "arrow.down")
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(width: 20, height: 20)
-                                            })
-                                            .buttonStyle(.plain)
-                                            .padding(.all, 10.0)
-                                            .clipShape(Circle())
-                                            .background(.black)
-                                            .foregroundColor(.white)
-                                            .cornerRadius(.infinity)
-                                            .foregroundColor(.black)
-                                        }
-                                    }
-                                    .padding(.all, 8.0)
+                }
+                
+                ScrollView {
+                    if (!imageModel.images.isEmpty) {
+                        VStack (spacing: 8.0) {
+                            ForEach(imageModel.images) { image in
+                                NavigationLink (destination: ImageDetailView(image: image).navigationTitle(image.name)) {
+                                    ListedImageView(image: image)
                                 }
                             }
                         }
-                        ProgressView()
-                            .task {
-                                if (imageModel.state == .success) {
-                                    page+=1
+                        .padding(.horizontal, 8.0)
+                        LazyVStack {
+                            ProgressView()
+                                .onAppear() {
+                                    page += 1
                                 }
-                            }
+                        }
+                        .padding(.vertical, 16.0)
                     }
-                    .padding(.horizontal, 8.0)
                 }
-            }
-            .refreshable {
-                Task {
-                    await imageModel.getImages()
-                }
-            }
-            .onChange(of: page) {
-                Task {
-                    await imageModel.loadMoreImages(page:page)
-                }
-            }
-            .onAppear() {
-                if (page == 1 && imageModel.images.isEmpty) {
+                .navigationTitle("Gallery")
+                .refreshable {
                     Task {
                         await imageModel.getImages()
+                    }
+                }
+                .onChange(of: page) {
+                    Task {
+                        await imageModel.loadMoreImages(page:page)
+                    }
+                }
+                .onAppear() {
+                    if (page == 1 && imageModel.images.isEmpty) {
+                        Task {
+                            await imageModel.getImages()
+                        }
                     }
                 }
             }

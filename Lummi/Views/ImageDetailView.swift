@@ -12,22 +12,22 @@ struct ImageDetailView: View {
     let image: ImageModel
     
     @State var showMore: Bool = false
+    @State private var downloadableImage: UIImage?
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack (alignment: .leading) {
-                    let url = "\(lummiURL)\(String(image.path))"
-                    HStack {
-                        AvatarView(size: 30, avatar: image.author.avatar)
-                        Text(image.author.name)
-                            .font(.system(size: 20.0, weight: .bold))
-                    }
-                    ImageView(path: url, width: image.width, height: image.height, blurhash: image.blurhash, cornerRadius: 8.0)
+                    let url = "\(lummiURL)\(String(image.path))?w=1080&q=0&fm=avif"
+                     
+                    ImageView(path: url, width: image.width, height: image.height, blurhash: image.blurhash, cornerRadius: 8.0, loadedImage: $downloadableImage)
                     .cornerRadius(8.0)
                     VStack (alignment: .leading) {
-                        Text(image.name)
-                            .font(.system(size: 32.0, weight: .black))
+                        HStack {
+                            AvatarView(size: 30, avatar: image.author.avatar)
+                            Text(image.author.name)
+                                .font(.system(size: 20.0, weight: .bold))
+                        }
                         VStack (alignment: .leading) {
                             Text(image.description)
                                 .lineLimit(showMore ? 10000 : 3)
@@ -38,7 +38,6 @@ struct ImageDetailView: View {
                             .buttonStyle(.bordered)
                         }
                     }
-                    Spacer()
                 }
                 .padding(.horizontal, 12.0)
             }

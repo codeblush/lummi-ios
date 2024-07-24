@@ -16,7 +16,7 @@ func getLummiImages(page: Int = 1) async throws -> [ImageModel] {
         "params": [
             [
                 "page": page,
-                "perPage": 30,
+                "perPage": 20,
                 "filters": [:],
                 "orderBy": [
                     ["featuredScore": "desc"],
@@ -28,29 +28,8 @@ func getLummiImages(page: Int = 1) async throws -> [ImageModel] {
     
     request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
     
-    // Check for a cached response
-    if let cachedResponse = URLCache.shared.cachedResponse(for: request) {
-        let data = cachedResponse.data
-        // Decode the JSON response
-        do {
-            let decoder = JSONDecoder()
-            let imageModel = try decoder.decode([ImageModel].self, from: data)
-            return imageModel
-        } catch {
-            throw ImageErrors.invalidData
-        }
-    }
-
     // Make the network request
     let (data, response) = try await URLSession.shared.data(for: request)
-    
-    // Cache the response
-    if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-        let cachedData = CachedURLResponse(response: response, data: data)
-        URLCache.shared.storeCachedResponse(cachedData, for: request)
-    } else {
-        throw ImageErrors.invalidResponse
-    }
     
     // Decode the JSON response
     do {

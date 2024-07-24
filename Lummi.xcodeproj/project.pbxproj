@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E56364A82C5093330004F7BE /* UnifiedBlurHash in Frameworks */ = {isa = PBXBuildFile; productRef = E56364A72C5093330004F7BE /* UnifiedBlurHash */; };
+		E5BFF9A32C501A0E002BF633 /* ListedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFF9A22C501A0E002BF633 /* ListedImageView.swift */; };
+		E5BFF9A52C501EAD002BF633 /* ImageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFF9A42C501EAD002BF633 /* ImageServices.swift */; };
 		E5D83E6F2C49EB9E003904E2 /* LummiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83E6E2C49EB9E003904E2 /* LummiApp.swift */; };
 		E5D83E712C49EB9E003904E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83E702C49EB9E003904E2 /* ContentView.swift */; };
 		E5D83E732C49EB9E003904E2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83E722C49EB9E003904E2 /* Item.swift */; };
@@ -18,12 +21,9 @@
 		E5D83E9F2C49F261003904E2 /* ImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83E9E2C49F261003904E2 /* ImagesModel.swift */; };
 		E5D83EA12C49FBF4003904E2 /* LummiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83EA02C49FBF4003904E2 /* LummiService.swift */; };
 		E5D83EA32C4A1D31003904E2 /* LummiImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83EA22C4A1D31003904E2 /* LummiImageController.swift */; };
-		E5D83EA62C4ABD02003904E2 /* MasonryStack in Frameworks */ = {isa = PBXBuildFile; productRef = E5D83EA52C4ABD02003904E2 /* MasonryStack */; };
 		E5D83EA82C4AD07B003904E2 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83EA72C4AD07B003904E2 /* ImageDetailView.swift */; };
-		E5D83EAB2C4B1E33003904E2 /* UnifiedBlurHash in Frameworks */ = {isa = PBXBuildFile; productRef = E5D83EAA2C4B1E33003904E2 /* UnifiedBlurHash */; };
 		E5D83EAD2C4B22E1003904E2 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83EAC2C4B22E1003904E2 /* ImageView.swift */; };
 		E5D83EAF2C4B2538003904E2 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D83EAE2C4B2538003904E2 /* AvatarView.swift */; };
-		E5D83EB22C4D81B9003904E2 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = E5D83EB12C4D81B9003904E2 /* CachedAsyncImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E5BFF9A22C501A0E002BF633 /* ListedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListedImageView.swift; sourceTree = "<group>"; };
+		E5BFF9A42C501EAD002BF633 /* ImageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServices.swift; sourceTree = "<group>"; };
 		E5D83E6B2C49EB9E003904E2 /* Lummi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lummi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D83E6E2C49EB9E003904E2 /* LummiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LummiApp.swift; sourceTree = "<group>"; };
 		E5D83E702C49EB9E003904E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,9 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5D83EB22C4D81B9003904E2 /* CachedAsyncImage in Frameworks */,
-				E5D83EAB2C4B1E33003904E2 /* UnifiedBlurHash in Frameworks */,
-				E5D83EA62C4ABD02003904E2 /* MasonryStack in Frameworks */,
+				E56364A82C5093330004F7BE /* UnifiedBlurHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +166,7 @@
 				E5D83EA72C4AD07B003904E2 /* ImageDetailView.swift */,
 				E5D83EAC2C4B22E1003904E2 /* ImageView.swift */,
 				E5D83EAE2C4B2538003904E2 /* AvatarView.swift */,
+				E5BFF9A22C501A0E002BF633 /* ListedImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				E5D83EA02C49FBF4003904E2 /* LummiService.swift */,
+				E5BFF9A42C501EAD002BF633 /* ImageServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -203,9 +205,7 @@
 			);
 			name = Lummi;
 			packageProductDependencies = (
-				E5D83EA52C4ABD02003904E2 /* MasonryStack */,
-				E5D83EAA2C4B1E33003904E2 /* UnifiedBlurHash */,
-				E5D83EB12C4D81B9003904E2 /* CachedAsyncImage */,
+				E56364A72C5093330004F7BE /* UnifiedBlurHash */,
 			);
 			productName = Lummi;
 			productReference = E5D83E6B2C49EB9E003904E2 /* Lummi.app */;
@@ -280,9 +280,8 @@
 			);
 			mainGroup = E5D83E622C49EB9E003904E2;
 			packageReferences = (
-				E5D83EA42C4ABD02003904E2 /* XCRemoteSwiftPackageReference "MasonryStack" */,
 				E5D83EA92C4B1E33003904E2 /* XCRemoteSwiftPackageReference "UnifiedBlurHash" */,
-				E5D83EB02C4D81B9003904E2 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				E56364A92C5093D40004F7BE /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 			);
 			productRefGroup = E5D83E6C2C49EB9E003904E2 /* Products */;
 			projectDirPath = "";
@@ -326,9 +325,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5BFF9A52C501EAD002BF633 /* ImageServices.swift in Sources */,
 				E5D83EAD2C4B22E1003904E2 /* ImageView.swift in Sources */,
 				E5D83EA32C4A1D31003904E2 /* LummiImageController.swift in Sources */,
 				E5D83EA82C4AD07B003904E2 /* ImageDetailView.swift in Sources */,
+				E5BFF9A32C501A0E002BF633 /* ListedImageView.swift in Sources */,
 				E5D83E712C49EB9E003904E2 /* ContentView.swift in Sources */,
 				E5D83E732C49EB9E003904E2 /* Item.swift in Sources */,
 				E5D83EA12C49FBF4003904E2 /* LummiService.swift in Sources */,
@@ -423,7 +424,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -480,7 +483,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -501,6 +506,8 @@
 				DEVELOPMENT_TEAM = TSP733L3T9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "$(PRODUCT_NAME) photo use";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) photo use";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -513,9 +520,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = rojo.Lummi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -530,6 +541,8 @@
 				DEVELOPMENT_TEAM = TSP733L3T9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "$(PRODUCT_NAME) photo use";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) photo use";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -542,9 +555,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = rojo.Lummi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -666,12 +683,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E5D83EA42C4ABD02003904E2 /* XCRemoteSwiftPackageReference "MasonryStack" */ = {
+		E56364A92C5093D40004F7BE /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lukepistrol/MasonryStack.git";
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
+				minimumVersion = 2.1.1;
 			};
 		};
 		E5D83EA92C4B1E33003904E2 /* XCRemoteSwiftPackageReference "UnifiedBlurHash" */ = {
@@ -682,31 +699,13 @@
 				minimumVersion = 1.0.3;
 			};
 		};
-		E5D83EB02C4D81B9003904E2 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E5D83EA52C4ABD02003904E2 /* MasonryStack */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E5D83EA42C4ABD02003904E2 /* XCRemoteSwiftPackageReference "MasonryStack" */;
-			productName = MasonryStack;
-		};
-		E5D83EAA2C4B1E33003904E2 /* UnifiedBlurHash */ = {
+		E56364A72C5093330004F7BE /* UnifiedBlurHash */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E5D83EA92C4B1E33003904E2 /* XCRemoteSwiftPackageReference "UnifiedBlurHash" */;
 			productName = UnifiedBlurHash;
-		};
-		E5D83EB12C4D81B9003904E2 /* CachedAsyncImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E5D83EB02C4D81B9003904E2 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
-			productName = CachedAsyncImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

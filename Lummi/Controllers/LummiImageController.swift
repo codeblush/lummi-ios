@@ -11,7 +11,6 @@ import SwiftUI
 final class ImageControllerModel: ObservableObject {
     enum Status {
         case idle
-        case loadingFirstBatch
         case loading
         case failed
         case success
@@ -45,13 +44,13 @@ final class ImageControllerModel: ObservableObject {
     func getImages() async {
         do {
             DispatchQueue.main.async {
-                self.state = .loadingFirstBatch
+                self.state = .loading
+                self.images = []
             }
                 
             let result = try await getLummiImages()
             
             DispatchQueue.main.async {
-                self.images = []
                 self.images.append(contentsOf: result)
                 self.state = .success
             }

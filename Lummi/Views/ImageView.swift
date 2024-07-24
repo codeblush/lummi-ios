@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
+import UIKit
 
 struct ImageView: View {
     let path: String
@@ -17,9 +17,10 @@ struct ImageView: View {
     let cornerRadius: Double?
     
     @State var id: UUID = UUID()
+    @Binding var loadedImage: UIImage?
     
     var body: some View {
-        CachedAsyncImage(url: URL(string: path)) { path in
+        AsyncImage(url: URL(string: path)) { path in
             switch path {
             case .empty:
                 ZStack (alignment: .topLeading) {
@@ -53,9 +54,12 @@ struct ImageView: View {
                     .resizable()
                     .scaledToFit()
                     .id(id)
+                    .onAppear() {
+                        loadedImage = image.asUIImage()
+                    }
                     .contextMenu {
                         Button("Save Image", systemImage: "square.and.arrow.down") {
-                            print("hello")
+                            downloadImage(image: image.asUIImage())
                         }
                     } preview: {
                         image
@@ -70,6 +74,19 @@ struct ImageView: View {
     }
 }
 
-#Preview {
-    ImageView(path: "\(lummiURL)/assets/QmYRewDzt7L1kqkHjTiJfvpE1sEqmYhJzbbRwd5a1UKaoM", width: 1856, height: 2464, blurhash: "egNmm8.8_NaeR*?uMxM{tRRPtRV@M{ozxut7tRM{RPozozoLWUM{oL", cornerRadius: 8.0)
+extension Image {
+    func asUIImage() -> UIImage? {
+        let controller = UIHostingController(rootView: self.ignoresSafeArea())
+        controller.view.bounds = CGRect(x: 0, y: 0, width: 1, height: 1)
+        
+        let targetSize = controller.view.intrinsicContentSize
+        controller.view.bounds = CGRect(origin: .zero, size: targetSize)
+        controller.view.backgroundColor = .clear
+
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+        
+        return renderer.image { _ in
+            controller.view.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
+        }
+    }
 }
